@@ -6,5 +6,20 @@ namespace TP2
         {
             InitializeComponent();
         }
+
+        private void labelArrivee_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePickerArrivee_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
