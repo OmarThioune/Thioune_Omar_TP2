@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             buttonReservation = new Button();
             buttonQuitter = new Button();
             dateTimePickerArrivee = new DateTimePicker();
@@ -39,8 +40,10 @@
             pictureBoxCamping = new PictureBox();
             labelCamping = new Label();
             label1 = new Label();
+            errorProviderDate = new ErrorProvider(components);
             ((System.ComponentModel.ISupportInitialize)pictureBoxPaysage).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxCamping).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderDate).BeginInit();
             SuspendLayout();
             // 
             // buttonReservation
@@ -51,6 +54,7 @@
             buttonReservation.TabIndex = 0;
             buttonReservation.Text = "Réservation";
             buttonReservation.UseVisualStyleBackColor = true;
+            buttonReservation.Click += buttonReservation_Click;
             // 
             // buttonQuitter
             // 
@@ -103,15 +107,18 @@
             comboBoxHebergement.Name = "comboBoxHebergement";
             comboBoxHebergement.Size = new Size(416, 23);
             comboBoxHebergement.TabIndex = 6;
+            comboBoxHebergement.Text = "Choix des hébergements";
+            comboBoxHebergement.SelectedIndexChanged += comboBoxHebergement_SelectedIndexChanged;
             // 
             // pictureBoxPaysage
             // 
             pictureBoxPaysage.ErrorImage = Properties.Resources.Paysage;
+            pictureBoxPaysage.Image = Properties.Resources.secteurLac;
             pictureBoxPaysage.InitialImage = Properties.Resources.Paysage;
             pictureBoxPaysage.Location = new Point(122, 105);
             pictureBoxPaysage.Name = "pictureBoxPaysage";
             pictureBoxPaysage.Size = new Size(212, 140);
-            pictureBoxPaysage.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBoxPaysage.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBoxPaysage.TabIndex = 7;
             pictureBoxPaysage.TabStop = false;
             pictureBoxPaysage.Click += pictureBox1_Click;
@@ -146,6 +153,10 @@
             label1.TabIndex = 10;
             label1.Text = "Système de réservation - Hébergement";
             // 
+            // errorProviderDate
+            // 
+            errorProviderDate.ContainerControl = this;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -166,6 +177,7 @@
             Text = "TP2 - Omar Thioune";
             ((System.ComponentModel.ISupportInitialize)pictureBoxPaysage).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxCamping).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProviderDate).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -183,5 +195,6 @@
         private PictureBox pictureBoxCamping;
         private Label labelCamping;
         private Label label1;
+        private ErrorProvider errorProviderDate;
     }
 }

@@ -79,5 +79,25 @@ namespace TP2.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap secteurFleuve {
+            get {
+                object obj = ResourceManager.GetObject("secteurFleuve", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap secteurLac {
+            get {
+                object obj = ResourceManager.GetObject("secteurLac", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

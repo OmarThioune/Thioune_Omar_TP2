@@ -350,7 +350,7 @@
             // 
             // pictureBoxPaysage2
             // 
-            pictureBoxPaysage2.Location = new Point(705, 21);
+            pictureBoxPaysage2.Location = new Point(755, 45);
             pictureBoxPaysage2.Name = "pictureBoxPaysage2";
             pictureBoxPaysage2.Size = new Size(147, 140);
             pictureBoxPaysage2.TabIndex = 40;
