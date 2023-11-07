@@ -55,7 +55,7 @@ namespace TP2
 
         private void comboBoxHebergement_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(comboBoxHebergement.SelectedIndex == 0)
+            if (comboBoxHebergement.SelectedIndex == 0)
             {
                 pictureBoxPaysage.Image = Properties.Resources.secteurLac;
             }
@@ -63,6 +63,11 @@ namespace TP2
             {
                 pictureBoxPaysage.Image = Properties.Resources.secteurFleuve;
             }
+        }
+
+        private void buttonQuitter_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

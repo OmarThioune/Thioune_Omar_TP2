@@ -64,6 +64,7 @@
             buttonQuitter.TabIndex = 1;
             buttonQuitter.Text = "Quitter";
             buttonQuitter.UseVisualStyleBackColor = true;
+            buttonQuitter.Click += buttonQuitter_Click;
             // 
             // dateTimePickerArrivee
             // 
