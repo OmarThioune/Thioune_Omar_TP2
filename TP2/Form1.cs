@@ -30,13 +30,13 @@ namespace TP2
 
             if (dateTimePickerArrivee.Value.Month != 7 || dateTimePickerArrivee.Value.Year != dateTimePickerDepart.Value.Year)
             {
-                errorProviderDate.SetError(dateTimePickerArrivee, "La date doit être en juillet de la même année");
+                errorProviderDate.SetError(dateTimePickerArrivee, "La date doit Ãªtre en juillet de la mÃªme annÃ©e");
             }
             else
             {
                 if (dateTimePickerArrivee.Value.Day > dateTimePickerDepart.Value.Day)
                 {
-                    errorProviderDate.SetError(dateTimePickerArrivee, "La date de départ doit être plus tard que la date de l'arrivée");
+                    errorProviderDate.SetError(dateTimePickerArrivee, "La date de dÃ©part doit Ãªtre plus tard que la date de l'arrivÃ©e");
                 }
                 else
                 {
@@ -47,6 +47,26 @@ namespace TP2
                     else
                     {
                         errorProviderDate.Clear();
+
+                        FormReservation fenetre = new FormReservation();
+                        
+                        
+
+                        if(comboBoxHebergement.Text == "Secteur du Lac")
+                        {
+                            Camping camp = new Camping(1, comboBoxHebergement.Text , 8 , 20 , 5 , "Lac" , "RESERV_LAC");
+                            fenetre.Affichage(camp);
+                        }
+                        else
+                        {
+                            
+                            Camping camp = new Camping(2, comboBoxHebergement.Text, 4, 15, 0, "fleuve", "RESERV_FLEUVE");
+                            fenetre.Affichage(camp);
+                        }
+
+                        
+
+                        fenetre.ShowDialog();
                     }
                 }
             }
