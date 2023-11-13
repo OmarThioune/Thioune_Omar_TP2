@@ -131,4 +131,26 @@ namespace TP2
 
            }
        }
+
+               private void textBoxCourriel_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxCourriel.Text == "" || !textBoxCourriel.Text.Contains("@"))
+            {
+                errorProviderCourriel.SetError(textBoxCourriel, "Ce champs n'est pas valide");
+                validationCourriel = false;
+            }
+            else
+            {
+                errorProviderCourriel.Clear();
+                validationCourriel = true;
+            }
+
+            if (validationNbAdulte == true && validationNbEnfant == true &&
+                 validationCourriel == true && validationNom == true && validationTerrain == true
+              )
+            {
+                buttonFaireReservation.Enabled = true;
+
+            }
+        }
 }
