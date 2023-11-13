@@ -82,4 +82,28 @@ namespace TP2
            }
 
        }
+
+               private void numericUpDownEnfants_ValueChanged(object sender, EventArgs e)
+        {
+            if (numericUpDownEnfants.Value > 8)
+            {
+                errorProviderNbEnfant.SetError(numericUpDownEnfants, "Ce nombre doit etre inférieure à 8");
+                validationNbAdulte = false;
+            }
+            else
+            {
+                errorProviderNbEnfant.Clear();
+                validationNbEnfant = true;
+
+            }
+
+            if (validationNbAdulte == true && validationNbEnfant == true &&
+                validationCourriel == true && validationNom == true && validationTerrain == true
+                )
+            {
+                buttonFaireReservation.Enabled = true;
+
+            }
+
+        }
 }
