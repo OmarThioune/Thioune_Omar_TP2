@@ -153,4 +153,26 @@ namespace TP2
 
             }
         }
+
+               private void comboBoxChoixTerrain_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxChoixTerrain.Text == "")
+            {
+                errorProviderChoixTerrain.SetError(comboBoxChoixTerrain, "Ce champs doit etre rempli");
+                validationTerrain = false;
+            }
+            else
+            {
+                errorProviderChoixTerrain.Clear();
+                validationTerrain = true;
+            }
+
+            if (validationNbAdulte == true && validationNbEnfant == true &&
+                validationCourriel == true && validationNom == true && validationTerrain == true
+              )
+            {
+                buttonFaireReservation.Enabled = true;
+
+            }
+        }
 }
