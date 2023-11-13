@@ -83,7 +83,7 @@ namespace TP2
 
        }
 
-               private void numericUpDownEnfants_ValueChanged(object sender, EventArgs e)
+       private void numericUpDownEnfants_ValueChanged(object sender, EventArgs e)
         {
             if (numericUpDownEnfants.Value > 8)
             {
@@ -106,4 +106,29 @@ namespace TP2
             }
 
         }
+
+       private void textBoxNom_TextChanged(object sender, EventArgs e)
+       {
+           string nom = textBoxNom.Text;
+           Regex regex = new Regex("^[a-zA-Z\\s'\\-\\x00-\\x1F\\x7F-\\x9F]+$");
+
+           if (textBoxNom.Text == ""  || !regex.IsMatch(nom))
+           {
+               errorProviderNom.SetError(textBoxNom, "ce champs n'est pas valide");
+               validationNom = false;
+           }
+           else 
+           {
+               errorProviderNom.Clear();
+               validationNom = true;
+           }
+
+           if (validationNbAdulte == true && validationNbEnfant == true &&
+               validationCourriel == true && validationNom == true && validationTerrain == true
+           )
+           {
+               buttonFaireReservation.Enabled = true;
+
+           }
+       }
 }
