@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.Design;
 
 namespace TP2
@@ -9,20 +10,10 @@ namespace TP2
             InitializeComponent();
         }
 
-        private void labelArrivee_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateTimePickerArrivee_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
+        const int MaxNuit = 6;
+        const String messageErreur = "La date doit être en juillet de la même année";
+        const String messageErreur2 = "La date de départ doit être plus tard que la date de l'arrivée";
+        const String messageErreur3 = "il doit y avoir au maximum 6 nuits";
 
         private void buttonReservation_Click(object sender, EventArgs e)
         {
@@ -30,43 +21,44 @@ namespace TP2
 
             if (dateTimePickerArrivee.Value.Month != 7 || dateTimePickerArrivee.Value.Year != dateTimePickerDepart.Value.Year)
             {
-                errorProviderDate.SetError(dateTimePickerArrivee, "La date doit être en juillet de la même année");
+                errorProviderDate.SetError(dateTimePickerArrivee, messageErreur);
             }
             else
             {
                 if (dateTimePickerArrivee.Value.Day > dateTimePickerDepart.Value.Day)
                 {
-                    errorProviderDate.SetError(dateTimePickerArrivee, "La date de départ doit être plus tard que la date de l'arrivée");
+                    errorProviderDate.SetError(dateTimePickerArrivee, messageErreur2);
                 }
                 else
                 {
-                    if ((dateTimePickerDepart.Value.Day - dateTimePickerArrivee.Value.Day) > 6)
+                    if ((dateTimePickerDepart.Value.Day - dateTimePickerArrivee.Value.Day) > MaxNuit)
                     {
-                        errorProviderDate.SetError(dateTimePickerArrivee, "il doit y avoir au maximum 6 nuits");
+                        errorProviderDate.SetError(dateTimePickerArrivee, messageErreur3);
                     }
                     else
                     {
-                        errorProviderDate.Clear();
-
-                        FormReservation fenetre = new FormReservation();
-                        
-                        
-
-                        if(comboBoxHebergement.Text == "Secteur du Lac")
+                        if (comboBoxHebergement.Text != "Choix des hébergements" || dateTimePickerArrivee.Value != dateTimePickerDepart.Value)
                         {
-                            Camping camp = new Camping(1, comboBoxHebergement.Text , 8 , 20 , 5 , "Lac" , "RESERV_LAC");
-                            fenetre.Affichage(camp);
-                        }
-                        else
-                        {
+                            errorProviderDate.Clear();
+                            FormReservation fenetre = new FormReservation();
                             
-                            Camping camp = new Camping(2, comboBoxHebergement.Text, 4, 15, 0, "fleuve", "RESERV_FLEUVE");
-                            fenetre.Affichage(camp);
+
+                            if (comboBoxHebergement.Text == "Secteur du Lac")
+                            {
+                                Camping camp = new Camping(0, comboBoxHebergement.Text, 8, 20, 5, "Lac", "RESERV_LAC");
+                                fenetre.Affichage(camp);
+
+                            }
+                            else
+                            {
+                                Camping camp = new Camping(1, comboBoxHebergement.Text, 4, 15, 0, "fleuve", "RESERV_FLEUVE");
+                                fenetre.Affichage(camp);
+                            }
+                            fenetre.LesDate(dateTimePickerArrivee.Value, dateTimePickerDepart.Value);
+                            
+                            fenetre.ShowDialog();
+                            
                         }
-
-                        
-
-                        fenetre.ShowDialog();
                     }
                 }
             }
