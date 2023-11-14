@@ -175,4 +175,16 @@ namespace TP2
 
             }
         }
+
+              private void buttonNouvelleReservation_Click(object sender, EventArgs e)
+       {
+           textBoxCourriel .Text= null;
+           textBoxNom.Text = null;
+           numericUpDownAdulte.Value = 0;
+           numericUpDownEnfants.Value = 0;
+
+
+           buttonFaireReservation.Enabled = false;
+
+        }
 }
