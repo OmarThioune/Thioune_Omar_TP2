@@ -307,5 +307,10 @@ namespace TP2
             buttonFaireReservation.Enabled = false;
 
         }
+
+        private void buttonRetour_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
